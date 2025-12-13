@@ -1,2 +1,1 @@
-# ai-study
-Ai course lab works
+# AI course lab works

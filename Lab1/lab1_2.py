@@ -1,5 +1,5 @@
 day_1 = ['home', 'school','restaurant', 'home']
-day_2 = ['home', 'school','restaurant', 'home']
+day_2 = ['home', 'school', 'home']
 day_3 = ['school', 'home']
 day_4 = ['home', 'restaurant', 'home']
 

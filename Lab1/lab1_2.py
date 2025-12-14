@@ -1,26 +1,33 @@
-day_1 = ['home', 'school','restaurant', 'home']
-day_2 = ['home', 'school', 'home']
-day_3 = ['school', 'home']
-day_4 = ['home', 'restaurant', 'home']
+import collections
+from textblob import TextBlob
+import string
 
-all_days = [day_1, day_2, day_3, day_4]
+sentence = """Ultra shorts - Our ever-popular long-cut, quick-drying Ultra Shorts use lightweight 50-denier 
+polyester ripstop with a wicking finish to stay cool and comfortable, mile after mile. 
+Pockets: two front drop-ins, two large"""
 
-# Collect all locations
-all_locations = []
-for day in all_days:
-    all_locations.extend(day)
+translator = str.maketrans('', '', string.punctuation)
+clean_sentence = sentence.translate(translator)
 
-# Count visits
-unique_locations = set(all_locations)
+words_list = clean_sentence.split()
 
-location_counts = {}
-for location in unique_locations:
-    location_counts[location] = all_locations.count(location)
+unique_words = set(words_list)
+print("Word counts:")
+for word in unique_words:
+    print(word, words_list.count(word))
 
-# Sort by frequency (descending)
-sorted_locations = sorted(location_counts.items(), key=lambda x: x[1], reverse=True)
+word_counts = collections.Counter(words_list)
+print("\nTop 10 words:")
+print(word_counts.most_common(10))
 
-# Print results
-print("Unique locations visited:")
-for location, count in sorted_locations:
-    print(f"{location}: visited {count} times")
+ngram_object = TextBlob(sentence)
+
+bigrams = ngram_object.ngrams(n=2)
+print("\nBigrams:")
+print(bigrams)
+
+trigrams = ngram_object.ngrams(n=3)
+print("\nTrigrams:")
+print(trigrams)
+
+    

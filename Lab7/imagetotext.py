@@ -7,9 +7,9 @@ pytesseract.pytesseract.tesseract_cmd = r'G:\Tesseract\tesseract.exe'
 
 img = cv2.imread('pic1.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-ret, thres = cv2.threshold(gray, 141, 255, cv2.THRESH_BINARY)
+ret, thres = cv2.threshold(gray, 145.7, 200, cv2.THRESH_BINARY)
 
-custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,:-'
+custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 cv2.imwrite("debug_preprocessed.png", thres)
 
@@ -19,6 +19,9 @@ print(text)
 
 with open('text1.txt','r',encoding='latin-1') as file:
     ground_truth = file.read()
+    
+print("Bodit text") 
+print(ground_truth)
     
 def calculate_accuracy(pred, true):
     import difflib

@@ -1,4 +1,3 @@
-# 2. Импорт ба тохиргоо
 import torch
 from transformers import pipeline
 import nltk
@@ -9,7 +8,6 @@ nltk.download('punkt')
 
 print("Бүгд амжилттай суусан!\n")
 
-# 3. Загвар сонгох (gpt2 маш хурдан, гэхдээ монгол хэл муу. Илүү сайн үр дүн авахыг хүсвэл доорхыг идэвхжүүл)
 generator = pipeline("text-generation",
                      model="gpt2",
                      # model="l3cube-pune/mongolian-bert",   #better mongolian
